@@ -1,0 +1,3 @@
+#!/bin/bash
+
+java -jar CompGeom_TriangulateMonotonePolygon.jar $1
