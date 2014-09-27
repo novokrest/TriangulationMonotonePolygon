@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cd src
-javac Main.java 
-jar cfm ../CompGeom_TriangulateMonotonePolygon.jar manifest.mf *.class
-rm -f *.class
-cd ../
-
