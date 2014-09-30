@@ -117,10 +117,7 @@ public class MonotonePolygon {
     }
 
     public void addTriangle(int vertexNumber1, int vertexNumber2, int vertexNumber3) {
-        try {
-            myTriangles.add(new Triangle(vertexNumber1, vertexNumber2, vertexNumber3));
-        } catch (Exception e) {
-        }
+        myTriangles.add(new Triangle(vertexNumber1, vertexNumber2, vertexNumber3));
     }
 
     public void printTriangulation() {
@@ -144,23 +141,14 @@ public class MonotonePolygon {
         private final int myV2;
         private final int myV3;
 
-        public Triangle(int v1, int v2, int v3) throws Exception {
+        public Triangle(int v1, int v2, int v3) {
             int min = Math.min(v1, Math.min(v2, v3));
             int max = Math.max(v1, Math.max(v2, v3));
             int middle = v1 + v2 + v3 - min - max;
 
             myV1 = min;
-            if (Util.counterClockWise(getVertex(min), getVertex(middle), getVertex(max))) {
-                myV2 = middle;
-                myV3 = max;
-            }
-            else if (Util.clockWise(getVertex(min), getVertex(middle), getVertex(max))) {
-                myV2 = max;
-                myV3 = middle;
-            }
-            else {
-                throw new Exception("Points are on the straight line");
-            }
+            myV2 = middle;
+            myV3 = max;
         }
 
         @Override
