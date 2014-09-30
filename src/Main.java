@@ -61,6 +61,7 @@ public class Main {
 
     private static boolean isDiagonalInsidePolygon(PointOnChain rightPoint, PointOnChain middlePoint, PointOnChain leftPoint) {
         boolean isClockWise = Util.clockWise(rightPoint.getPoint(), middlePoint.getPoint(), leftPoint.getPoint());
-        return rightPoint.isUpperChain() ? !isClockWise : isClockWise;
+        boolean isCounterClockWise = Util.counterClockWise(rightPoint.getPoint(), middlePoint.getPoint(), leftPoint.getPoint());
+        return rightPoint.isUpperChain() ? isCounterClockWise : isClockWise;
     }
 }
